@@ -1,73 +1,73 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
+# huskey-try
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+## このリポジトリは何？
 
-## Description
+nestjsのプロジェクトをサンプルとしてhuskyを試す
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+## huskyの特徴
 
-## Installation
+Huskyの特徴について、それぞれの説明とその必要性を以下にまとめます。
+1. Just 2 kB (📦 gzipped) with no dependencies
 
-```bash
-$ npm install
-```
+    説明: Huskyは、圧縮後のサイズがわずか2 kBであり、外部の依存関係を持ちません。
+    必要性: これにより、プロジェクトに追加しても負荷が軽く、導入が容易です。また、依存関係がないため、脆弱性や互換性の問題が少なくなります。
 
-## Running the app
+2. Extremely fast (runs in ~1ms)
 
-```bash
-# development
-$ npm run start
+    説明: Huskyは非常に高速で、約1ミリ秒で実行されます。
+    必要性: 開発者の作業フローを妨げないため、効率的な開発が可能です。特に大規模なプロジェクトでは、フックの遅延が積み重なると生産性に影響するため、高速性は重要です。
 
-# watch mode
-$ npm run start:dev
+3. Uses new Git feature (core.hooksPath)
 
-# production mode
-$ npm run start:prod
-```
+    説明: Huskyは、Gitの新しい機能であるcore.hooksPathを使用します。
+    必要性: これにより、Gitフックのパスを柔軟に指定でき、プロジェクトごとにカスタムフックを簡単に設定できます。従来の方法に比べて設定が簡単で、複数のプロジェクトを扱う場合にも便利です。
 
-## Test
+4. Supports:
 
-```bash
-# unit tests
-$ npm run test
+    説明: HuskyはmacOS、Linux、Windowsのすべての主要なOSをサポートし、Git GUIs、Nodeバージョン管理ツール、カスタムフックディレクトリ、ネストされたプロジェクト、モノレポにも対応しています。
+    必要性: 開発環境やチームメンバーが異なるOSやツールを使用していても、Huskyは問題なく動作します。これにより、チーム全体で統一されたフックの使用が保証され、開発環境に依存しないフレキシビリティが提供されます。
 
-# e2e tests
-$ npm run test:e2e
+5. All 13 client-side Git hooks
 
-# test coverage
-$ npm run test:cov
-```
+    説明: Huskyは、すべての13種類のクライアントサイドGitフックに対応しています。
+    必要性: 多様なGitフックを使用できるため、コミット前のリント、プッシュ前のテスト実行など、さまざまなシナリオに応じてフックをカスタマイズできます。これにより、プロジェクトの品質管理が容易になります。
 
-## Support
+6. Branch-specific hooks
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+    説明: 特定のブランチに対してフックを設定できます。
+    必要性: ブランチごとに異なるポリシーやフックを適用する場合に便利です。たとえば、メインブランチへのプッシュには厳密なテストを要求し、他のブランチには異なるルールを適用するなどの運用が可能です。
 
-## Stay in touch
+7. Use POSIX shell to script advanced cases
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+    説明: POSIXシェルを使用して、より高度なスクリプトを作成できます。
+    必要性: 複雑なフックロジックや、特定のシェルコマンドを必要とする場合に、POSIXシェルを使って高度なカスタマイズが可能です。これにより、フックの柔軟性が向上します。
 
-## License
+8. Adheres to Git's native hook organization
 
-Nest is [MIT licensed](LICENSE).
+    説明: Gitのネイティブなフックの構造に従っています。
+    必要性: Gitの標準に準拠しているため、他のGitツールやスクリプトと互換性があり、Gitの既存の仕組みを活かして簡単に設定できます。
+
+9. Aligns with npm best practices using prepare script
+
+    説明: prepareスクリプトを使用して、npmのベストプラクティスに準拠しています。
+    必要性: Huskyのセットアップがnpmのワークフローにスムーズに組み込まれ、インストール時に必要な準備作業を自動化できます。これにより、パッケージの一貫性が保たれ、追加の手作業が不要になります。
+
+10. Opt-in/opt-out options
+
+    説明: Huskyの機能を選択的に有効化または無効化できます。
+    必要性: プロジェクトや個人の好みに応じて、特定のフックや機能を柔軟に管理できます。これにより、必要な機能だけを使用し、プロジェクトの複雑さをコントロールできます。
+
+11. Can be globally disabled
+
+    説明: Huskyをグローバルに無効化できます。
+    必要性: 特定の状況（例えばデバッグや開発中）で一時的にフックを無効化したい場合に便利です。これにより、フックが原因で作業が妨げられることを防げます。
+
+12. User-friendly error messages
+
+    説明: ユーザーフレンドリーなエラーメッセージが表示されます。
+    必要性: フックでエラーが発生した場合でも、わかりやすいメッセージが表示されるため、問題の特定と解決が容易です。これにより、開発者の時間と労力が節約されます。
+
+これらの特徴により、HuskyはGitフックの管理を容易にし、プロジェクトの品質と効率性を向上させるツールとして広く利用されています。
+
+
